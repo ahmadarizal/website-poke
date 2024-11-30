@@ -1,113 +1,42 @@
-import {
-  FaBars,
-  FaTimes,
-  FaGithub,
-  FaLinkedin,
-  FaFacebook,
-} from "react-icons/fa";
-import { HiOutlineMail } from "react-icons/hi";
-import { BsFillPersonLinesFill } from "react-icons/bs";
-import Logo from "../assets/logo1.png";
+// import {
+//   FaBars,
+//   FaTimes,
+//   FaGithub,
+//   FaLinkedin,
+//   FaFacebook,
+// } from "react-icons/fa";
+// import { HiOutlineMail } from "react-icons/hi";
+// import { BsFillPersonLinesFill } from "react-icons/bs";
+// import { Link } from "react-scroll";
 import React, { useState } from "react";
-import { Link } from "react-scroll";
+import Logo from "../assets/pokemon.png";
+import { ImSearch } from "react-icons/im";
 
 const Navbar = () => {
-  const [nav, setNav] = useState(false);
-
-  const handleClick = () => setNav(!nav);
+  // const [nav, setNav] = useState(false);
+  // const handleClick = () => setNav(!nav);
 
   return (
-    <div className="fixed w-full h-[80px] flex justify-between items-center px-4 bg-[#0a192f] text-gray-300">
+    <div className="fixed w-full h-[80px] flex justify-around items-center px-4 bg-gradient-to-r from-green-700 to-green-300 text-gray-300">
       <div>
-        <img src={Logo} alt="Logo Image" style={{ width: "58px" }} />
+        <img
+          src={Logo}
+          alt="Logo Image"
+          style={{ width: "200px" }}
+          className="ml-5"
+        />
       </div>
-
-      {/* menu */}
-
-      <ul className="hidden md:flex">
-        <li>
-          <Link to="home" smooth={true} duration={500}>
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link to="about" smooth={true} duration={500}>
-            About
-          </Link>
-        </li>
-        <li>
-          <Link to="skills" smooth={true} duration={500}>
-            Skill
-          </Link>
-        </li>
-        <li>
-          <Link to="work" smooth={true} duration={500}>
-            Work
-          </Link>
-        </li>
-        <li>
-          <Link to="contact" smooth={true} duration={500}>
-            Contact
-          </Link>
-        </li>
-      </ul>
-
-      {/*hamburger  */}
-      <div onClick={handleClick} className="md:hidden z-10">
-        {!nav ? <FaBars /> : <FaTimes />}
-      </div>
-
-      {/* Mobile menu */}
-      <ul
-        className={
-          !nav
-            ? "hidden"
-            : "absolute top-0 left-0 w-full h-screen  bg-[#0a192f] flex flex-col justify-center items-center"
-        }
-      >
-        <li className="py-6 text-4xl">Home</li>
-        <li className="py-6 text-4xl">Abuot</li>
-        <li className="py-6 text-4xl">Skills</li>
-        <li className="py-6 text-4xl">Work</li>
-        <li className="py-6 text-4xl">Contact</li>
-      </ul>
-
-      {/* Social icons */}
-      <div className="hidden lg:flex fixed flex-col top-[30%] left-0">
-        <ul>
-          <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-blue-700">
-            <a
-              className="flex justify-between items-center w-full text-gray-300"
-              href="https://www.linkedin.com/in/fikri-ahmad-971a13260/"
-            >
-              Linkedin <FaLinkedin size={30} />
-            </a>
-          </li>
-          <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#333333]">
-            <a
-              className="flex justify-between items-center w-full text-gray-300"
-              href="https://github.com/ahmadarizal"
-            >
-              Github <FaGithub size={30} />
-            </a>
-          </li>
-          <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-pink-600">
-            <a
-              className="flex justify-between items-center w-full text-gray-300"
-              href="/"
-            >
-              Email <HiOutlineMail size={30} />
-            </a>
-          </li>
-          <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#6fc2b0]">
-            <a
-              className="flex justify-between items-center w-full text-gray-300"
-              href="/"
-            >
-              Resume <BsFillPersonLinesFill size={30} />
-            </a>
-          </li>
-        </ul>
+      <div className="flex justify-center items-center w-full mt-2">
+        <div className="relative w-full max-w-md">
+          <input
+            type="text"
+            placeholder="Cari Pokemon"
+            className="duration-200 w-full h-[45px] text-black py-1.5 px-5 pr-10 border border-[#c1c4cd] rounded-full outline-none"
+          />
+          <div className="absolute inset-y-0 right-5 flex items-center pointer-events-none">
+            <ImSearch size={20} className="text-gray-500" />
+          </div>
+        </div>
       </div>
     </div>
   );
